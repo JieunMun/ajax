@@ -48,10 +48,21 @@
       fetchPage('welcome');
     }
 
-    fetch('list').then(function(response){
+    fetch('list0').then(function(response){
       response.text().then(function(text){
-        //querySelector에 'nav'입력 시, 에러발생. 우리가 원하는 것은 ID값이 'nav'인 태그이므로, #을 붙여야함.
-        document.querySelector('#nav').innerHTML=text;  
+        // <li><a href="#!html" onclick="fetchPage('html')">HTML</a></li>
+        var items= list0.split(',');
+        var i=0;
+        var tags='';
+        while(i<items.length){
+          var item=items[i];
+          item=item.trim();
+          var tag='<li><a href="#!'+item+'" onclick="fetchPage(\''+item+'\')">'+item+'</a></li>';
+          tags= tags+tag;
+          i=i+1;
+        }
+
+        document.querySelector('#nav').innerHTML=tags;
       })
     });
 
