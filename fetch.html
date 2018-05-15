@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <article>
+    </article>
+
+    <input type="button" value="fetch" onclick="
+      /*
+      fetch('css').then(function(response){
+        response.text().then(function(text){
+          <!-- alert(text); -->
+          document.querySelector('article').innerHTML =text;
+        })
+      })
+      */
+      /*Asynchronous 비동기
+      fetch는 첫번재 인자로 오는 데이터를 서버에 요청한다.
+      then(): fetch API에게 서버응답을 받으면, 괄호안에 있는 함수를 실행시키도록 요청함  */
+
+      function callme(){
+        console.log('response end');
+      }
+
+      fetch('css').then(callme);
+      console.log(1);
+      console.log(2);
+
+    ">
+  </body>
+
+</html>
